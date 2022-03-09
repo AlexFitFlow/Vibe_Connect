@@ -1,0 +1,54 @@
+.Whole {
+    width: 900px;
+    background-color: #3f1a1b;
+    /* background-color: rgba(41,125,140,255); */
+    /* background url('/static/images/back.jpg'); */
+}
+
+.logo {
+    margin-left: 240px;
+    display: grid;
+    padding: 30px;
+}
+
+.p {
+    color: white;
+}
+
+.nav-link {
+    width: 300px;
+}
+
+.d-inline-block {
+    margin: 20px;
+    justify-content: space-around;
+}
+
+.border-dark {
+    width: 300px;
+}
+
+.logo_pic {
+    border-radius: 25px;
+}
+.Header {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.main_content {
+    margin-left: 250px;
+}
+
+.upload_content {
+    margin-left: 150px;
+}
+
+.edit_area {
+    margin-left: 100px;
+}
+
+.margin_L {
+    margin-left: 50px;
+}

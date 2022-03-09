@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url(https://st4.depositphotos.com/24452164/25966/i/450/depositphotos_259664932-stock-photo-red-black-pattern-background-beautiful.jpg);" >
+    <div class="Whole" style="margin: auto;">
+        <!-- Top Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="height: 130px;">
+            <div class="d-flex justify-content-around">
+                <a class="navbar-brand" href="#">
+                    <img style="border-radius: 10px;" src="{% static 'images/logo3.jpg' %}" width="120" height="100" class="d-inline-block align-top"></a>
+                <a href="/home" style="margin: 23px;"><button class="btn btn-danger" type="button">Home</button></a>
+                <a href="/upload" style="margin: 23px;"><button class="btn btn-danger" type="button">Create Album</button></a>
+                <a href="/account_edit" style="margin: 23px;"><button class="btn btn-danger" type="button">Edit Account</button></a>
+                <a href="/logout" style="margin: 23px;"><button class="btn btn-danger" type="button">Logout</button></a>
+            </div>
+        </nav><br><br><br>
+        <!-- User Info -->
+        <div class="card text-white bg-dark mb-3" style="width: 515px; margin-left: 100px; padding: 5px;">
+            <img style="border-radius: 15px;" src="{{user.profile_picture.url}}" width="500px" alt="profile_picture"><br>
+            <h4>Name - {{user.first_name}} {{user.last_name}}</h4>
+            <h4>Bio - {{user.bio}}</h4>
+        </div><br>
+        <!-- Users Albums -->
+        <h1 style="margin-left: 50px; color: whitesmoke;">{{user.first_name}}'s Album Collection</h1>
+
+        <h1></h1>
+        <div class="container" style="width: 600px; margin-left: 50px;">
+            <div class="row">
+                    {% for album in user.albums.all %} 
+                        {% for photo in album.album_image.all %}
+                            <div class="card col-6">
+                                <img class="card-img-top" src="{{photo.cover.url}}" style="width: 200px; padding: 10px;" height="200px"  alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{photo.title}}</h5>
+                                    <p class="card-text">"{{photo.description}}"</p>
+                                    <p class="card-text"><small class="text-muted">Album - {{album.title}}</small></p>
+                                    <p class="card-text"><small class="text-muted">"{{album.description}}"</small></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+            </div>
+        </div><br><br><br>
+        <!-- Bottom Header -->
+        <div class="Header">
+            <p style="color:whitesmoke">© 2022 Fit Flow Inc </p>
+            <p><img src="{% static 'images/app.jpg' %}" style="border-radius: 10px;"  width="100px" alt="logo2"></p>
+            <p><img src="{% static 'images/app2.jpg' %}" style="border-radius: 10px;"  width="100px" alt="logo2"></p>
+        </div>
+    </div>
+</body>
+</html>

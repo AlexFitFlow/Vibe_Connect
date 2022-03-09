@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        p {text-align: center;}
+        h3 {text-align: center;}
+    </style>
+</head>
+
+<body style="background-image: url(https://st4.depositphotos.com/24452164/25966/i/450/depositphotos_259664932-stock-photo-red-black-pattern-background-beautiful.jpg);" >
+    <div class="Whole" style="margin: auto;">
+        <!-- Top Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="height: 130px;">
+            <div class="d-flex justify-content-around">
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'images/logo3.jpg' %}" style="border-radius: 10px; margin: 30px;" width="120" height="100" class="d-inline-block align-top"></a>
+                <a href="/home" style="margin: 35px;"><button class="btn btn-danger" type="button">Home</button></a>
+                <a href="/upload" style="margin: 35px;"><button class="btn btn-danger" type="button">Create Album</button></a>
+                <a href="/account_edit" style="margin: 35px;"><button class="btn btn-danger" type="button">Edit Account</button></a>
+                <a href="/logout" style="margin: 35px;"><button class="btn btn-danger" type="button">Logout</button></a>
+            </div>
+        </nav><br><br>
+            <!-- Company Info -->
+            <div class="edit_area">
+            <p style="margin-right: 70px; color: whitesmoke;">Our journey began in 2015 as a simple chat forum where people would connect and talk over
+                a range of topics related to the fitness world! We have generated a small yet passionate group of like minded exercise
+                enthusiasts who seek to discuss and expand on there knowledge of all things fitness. We have hosted many small meet ups 
+                over the years mostly with our proud sponsor Acai Safari Cafe! We thank you for contributing to our community and bringing 
+                your own unique background. Pictured below is our weekly company meeting!
+            </p><br>
+
+            <img src="{% static 'images/team.jpg' %}" style="margin-left: 50px; border-radius: 15px;" width="600px" alt="team"><br><br><br><br>
+            <p style="margin-right: 100px;" ><b style="color:whitesmoke">In partnership with:</b></p>
+            <img style="margin-left: 200px; border-radius: 15px;" src="{% static 'images/logo2.jpg' %}" width="300px" alt="logo"><br><br><br><br>
+            <!-- Contact Info -->
+            <div style="margin-right: 80px;" class="Contact_Us">
+                <h3 style="color:whitesmoke">Contact Us</h3>
+                <p style="color:whitesmoke">vibeconnect@icloud.com</p>
+                <p style="color:whitesmoke">(818)-345-7523</p><br>
+            </div>
+        </div><br>
+        <!-- Bottom Header -->
+        <div class="Header">
+            <p style="color:whitesmoke">© 2022 Fit Flow Inc </p>
+            <p><img src="{% static 'images/app.jpg' %}" width="100px" style="border-radius: 10px;" alt="logo2"></p>
+            <p><img src="{% static 'images/app2.jpg' %}" width="100px" style="border-radius: 10px;" alt="logo2"></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>

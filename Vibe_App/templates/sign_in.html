@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url(https://st4.depositphotos.com/24452164/25966/i/450/depositphotos_259664932-stock-photo-red-black-pattern-background-beautiful.jpg);" >
+    <div class="Whole" style="margin: auto; height: 900px;"><br><br>
+        <!-- Logo and Link -->
+        <div class="logo">
+            <img src="{% static 'images/logo3.jpg' %}" width="300px" height="200px" class="logo_pic" alt="Logo"><br>
+            <p><b><u style="color: white;">Sign In</u></b></p>
+            <ul>
+                {% for message in messages %}
+                    <li style="color: white;">{{message}}</li>
+                {% endfor %}
+            </ul>
+            <form action='/login' method="POST">
+                {% csrf_token %}
+                <input type='email' class="form-control" placeholder="Email" style="width: 300px;" name='email'>
+                <input type='password' class="form-control" placeholder="Password" style="width: 300px;" name='password'><br>
+                <input class="btn btn-primary btn-lg" style="border-radius: 25px;" type='submit'>
+            </form><br>
+            <a style="color: white;" href="/create_page">Create Account</a>
+        </div>
+    </div>
+</body>
+</html>

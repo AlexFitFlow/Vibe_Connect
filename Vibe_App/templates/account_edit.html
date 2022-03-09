@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Your Account</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url(https://st4.depositphotos.com/24452164/25966/i/450/depositphotos_259664932-stock-photo-red-black-pattern-background-beautiful.jpg);" >
+    <div class="Whole" style="margin: auto;">
+        <!-- Top Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="height: 130px;">
+                <div class="d-flex justify-content-around">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'images/logo3.jpg' %}" style="border-radius: 10px; margin: 30px;" width="120" height="100" class="d-inline-block align-top"></a>
+                    <a href="/home" style="margin: 35px;"><button class="btn btn-danger" type="button">Home</button></a>
+                    <a href="/about_us" style="margin: 35px;"><button class="btn btn-danger" type="button">About Us</button></a>
+                    <a href="/upload" style="margin: 35px;"><button class="btn btn-danger" type="button">Create Album</button></a>
+                    <a href="/logout" style="margin: 35px;"><button class="btn btn-danger" type="button">Logout</button></a>
+                </div>
+        </nav><br>
+
+        <div class="edit_area">
+            <form action='/update_user/{{user.id}}' enctype="multipart/form-data" method="POST">
+                <ul>
+                {% for message in messages %}
+                <li style="color:whitesmoke">{{message}}</li>
+                {% endfor %}
+                </ul>
+                {% csrf_token %}
+                <h3 style="color:whitesmoke">Welcome {{user.first_name}}</h3>
+                <h1 style="color:whitesmoke">Edit Your Profile!</h1><br>
+                <img style="border-radius: 15px;" src="{{user.profile_picture.url}}" width="400px" alt="profile picture"><br><br>
+                <!-- Change Profile pic and info -->
+                <input type="file" name="profile_picture">
+                <input type='text' class="form-control" placeholder="Bio" value="{{user.bio}}" style="width: 300px;" name='bio'>
+                <input type='text' class="form-control" placeholder="First Name" value="{{user.first_name}}" style="width: 300px;" name='first_name'>
+                <input type='text' class="form-control" placeholder="Last Name" value="{{user.last_name}}" style="width: 300px;" name='last_name'>
+                <input type='email' class="form-control" placeholder="Email" value="{{user.email}}" style="width: 300px;" 
+                name='email'>
+                <input type='text' class="form-control" placeholder="Bio" value="{{user.bio}}" style="width: 300px;" 
+                name='bio'><br>
+                <input style="border-radius: 15px;" class="btn btn-primary btn-lg" type='submit'>
+            </form><br><br>
+        </div>
+    </div>
+</body>
+</html>
